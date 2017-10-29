@@ -1,0 +1,311 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face{font-family:iconfont;src:url(../font/iconfont.eot?t=1500964529975);src:url(../font/iconfont.eot?t=1500964529975#iefix) format('embedded-opentype'),url(../font/iconfont.woff?t=1500964529975) format('woff'),url(../font/iconfont.ttf?t=1500964529975) format('truetype'),url(../font/iconfont.svg?t=1500964529975#iconfont) format('svg')}
+@font-face{font-family:numbers;src:url(../font/numbers.eot);src:url(../font/numbers.eot?#iefix) format("embedded-opentype"),url(../font/numbers.woff) format("woff"),url(../font/numbers.ttf) format("truetype"),url(../font/.svg#numbers) format("svg");font-style:normal;font-weight:400}.numfont{font-family:numbers!important;letter-spacing:-.5px}
+@font-face{font-family:MFShangHei-Regular;src:url(../font/MFShangHei-Regular.eot);src:url(../font/MFShangHei-Regular.eot?#iefix) format("embedded-opentype"),url(../font/MFShangHei-Regular.woff) format("woff"),url(../font/MFShangHei-Regular.ttf) format("truetype"),url(../font/MFShangHei-Regular.svg#MFShangHei-Regular) format("svg");font-style:normal;font-weight:400}
+@font-face{font-family:home-category-iconfont;src:url(../font/home-category-iconfont.eot?t=1503027869484);src:url(../font/home-category-iconfont.eot?t=1503027869484#iefix) format('embedded-opentype'),url(../font/home-category-iconfont.woff?t=1503027869484) format('woff'),url(../font/home-category-iconfont.ttf?t=1503027869484) format('truetype'),url(../font/home-category-iconfont.svg?t=1503027869484#home-category-iconfont) format('svg')}
+
+
+.theme-bg-blue{
+    background:-webkit-linear-gradient(0, #4f5a9f, #7693bc) !important;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-attachment:fixed;
+    font-family:home-category-iconfont, "-apple-system",BlinkMacSystemFont,Roboto,"Helvetica Neue","MIcrosoft YaHei",sans-serif!important;
+    1font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    -webkit-font-smoothing: antialiased;
+    width:100%;
+    1border-top:20px solid rgba(0,0,0,0);
+    background:-webkit-linear-gradient(0, #4f5a9f, #7693bc) !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Portrait layout (default) */
+.app {position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1{
+    padding:0px;
+    margin:0px;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+.clear{
+    content:' ';
+    display:block;
+    width:0px;
+    height:0px;
+    clear:both;
+}
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+/* none-content */
+.none-content{
+    width:100%;
+    padding:20px 0;
+    text-align:center;
+    margin:0;
+    font-size:.8em;
+    color:#aaa;
+}
+
+
+/* star */
+.b_star_1,.b_d1, .b_d2, .b_d3, .b_d4, .b_d5, .b_d6, .b_d7, .b_d8, .b_d9, .b_d10{background:url(../img/sun_star.gif) no-repeat scroll 347px 300px transparent;}
+.b_star_1{background-position:-65px -265px;width:64px;height:15px;display:inline-block;position:relative;top:3px;left:3px;}
+.b_d1, .b_d2, .b_d3, .b_d4, .b_d5, .b_d6, .b_d7, .b_d8, .b_d9, .b_d10{background-position:0 -265px;height:15px;display:inline-block;} 
+.b_d1{width:6px;}/*0.5*/
+.b_d2{width:12px;}/*1*/
+.b_d3{width:18px;}/*1.5*/
+.b_d4{width:24px;}/*2*/
+.b_d5{width:30px;}/*2.5*/
+.b_d6{width:36px;}/*3*/
+.b_d7{width:42px;}/*3.5*/
+.b_d8{width:48px;}/*4*/
+.b_d9{width:54px;}/*4.5*/
+.b_d10{width:60px;}/*5*/
+
+/* 弹幕 */
+.danmu *{
+    position:absolute;
+    z-index:999999;
+    max-width:80%;
+    bottom:2000px;
+    left:20px;
+    padding:6px 12px;
+    background:rgba(79,90,159,.8);
+    color:#fff;
+    font-weight:bold;
+    font-size:.9em;
+    border-radius:15px;
+}
+@-moz-keyframes danmu
+{
+    from {bottom: 20px;}
+    to {bottom: 2000px;}
+}
+@-webkit-keyframes danmu
+{
+    from {bottom: 20px;}
+    to {bottom: 2000px;}
+}
+@keyframes danmu
+{
+    from {bottom: 20px;}
+    to {bottom: 2000px;}
+}
+.danmu{
+    z-index:99999;
+
+}
+.danmu-group{
+}
+.danmu-input-group{
+    width:70%;
+    position:absolute;
+    bottom:130px;
+    right:100px;
+    z-index:999999;
+}
+.danmu-input{
+    width:80%;
+    padding:10px 0;
+    height:15px;
+    line-height:15px;
+    border-radius:5px;
+    box-sizing:content-box;
+    border:none;
+    background:#afb4db;
+    color:#fff;
+    text-indent:1.2em;
+    padding-right:60px;
+}
+.danmu-click{
+    position:absolute;
+    bottom: 5px;
+    right: 0;
+    height: 25px;
+    line-height: 25px;
+    background: rgba(79,90,159,.8);
+    padding: 0 8px;
+    border-radius: 5px;
+    color:#fff !important;
+    font-size: .8em;
+}
+.danmu-switch{
+    position:absolute;
+    bottom:170px;
+    right:80px;
+    z-index:99999;
+}
+.danmu-btn{
+    position:absolute;
+    bottom:120px;
+    right:30px;
+    height:55px;
+    width:55px;
+    border-radius:50%;
+    background:rgba(79,90,159,.8);
+    color:#fff;
+    font-weight:bold;
+    font-size:1.6em;
+    text-align:center;
+    line-height:55px;
+    z-index:99999;
+}
+.mui-switch{
+    position: relative;
+    display: block;
+    width: 74px;
+    height: 30px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    -webkit-transition-property: background-color,border;
+    transition-property: background-color,border;
+}
+
+.mui-switch.mui-active {
+    /*background-color: #4cd964;
+    border-color: #4cd964;*/
+    background-color: #afb4db;
+    border-color: #afb4db;
+}
+.mui-switch.mui-active:before {
+    right: auto;
+    left: 15px;
+    color: #fff;
+    content: "On";
+}
+.mui-switch.mui-active .mui-switch-handle {
+    -webkit-transform: translate(43px,0);
+    transform: translate(43px,0);
+}
+.mui-switch:before {
+    position: absolute;
+    top: 3px;
+    right: 11px;
+    font-size: 13px;
+    color: #999;
+    text-transform: uppercase;
+    content: "Off";
+}
+.mui-switch .mui-switch-handle {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.4);
+    box-shadow: 0 2px 5px rgba(0,0,0,.4);
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    -webkit-transition-property: -webkit-transform,width,left;
+    transition-property: transform,width,left;
+}
+
+.search-in-map{
+    color:#3d8be4 !important;
+}
+.search-result-item:after{
+    content:'';
+    width:0;
+    height:0;
+    display:block;
+    clear:both;
+}
+.search-result-item>a{
+    width:50%;
+    float:left;
+    text-align:center;
+}
+.search-result-item>a:first-child{
+    border-right:1px solid #eee;
+    box-sizing:border-box;
+}

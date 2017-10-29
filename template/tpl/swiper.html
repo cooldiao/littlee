@@ -1,0 +1,47 @@
+<div class="swiper-container" {{if data}}{{data.swiper}}{{/if}}>
+    <div class="swiper-wrapper">
+        {{if data && data.data}}
+            {{if per == 3}}
+                {{each data.data  vo}}
+                    <div class="swiper-slide">
+                        {{each vo  v1}}
+                            <a class='swiper-tab-item swiper-{{per}}' {{data.attr | attr:v1}}>
+                                <img class='swiper-tab-img swiper-img-{{per}}' src='{{v1.cover}}' />
+                                <div class='swiper-tab-title swiper-content-{{per}}'>{{v1.name}}</div>
+                            </a>
+                        {{/each}}
+                    </div>
+                {{/each}}
+            {{else if per == '1_5'}}
+                {{each data.data  vo}}
+                    <div class="swiper-slide">
+                        <a class='swiper-tab-item swiper-{{per}}' {{data.attr | attr:vo}}>
+                            <img class='swiper-tab-img swiper-img-{{per}}' src='{{vo.cover}}' />
+                            <div class='swiper-tab-title swiper-content-{{per}}'>{{vo.name}}</div>
+                        </a>
+                    </div>
+                {{/each}}
+            {{else}}
+                {{each data.data  vo}}
+                    <div class="swiper-slide">
+                        {{each vo  v1}}
+                            <a class='swiper-tab-item' {{data.attr | attr:v1}}>
+                                <img class='swiper-tab-img' src='{{v1.cover}}' />
+                                <div class='swiper-tab-title swiper-tab-{{per}}'>{{v1.name}}</div>
+                            </a>
+                        {{/each}}
+                    </div>
+                {{/each}}
+            {{/if}}
+        {{/if}}
+    </div>
+    <!-- 如果需要分页器 -->
+    <!-- <div class="swiper-pagination"></div> -->
+    
+    <!-- 如果需要导航按钮 -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+
+    <!-- 如果需要滚动条 -->
+    <!-- <div class="swiper-scrollbar"></div> -->
+</div>

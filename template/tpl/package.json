@@ -1,0 +1,21 @@
+{
+    "name": "template",
+    "version": "3.0.3",
+    "dependencies": {
+        "tmodjs": "1.0.4"
+    },
+    "tmodjs-config": {
+        "output": "../../lib/littlee/",
+        "charset": "utf-8",
+        "syntax": "simple",
+        "helpers": "../helpers/template-helper.js",
+        "escape": false,
+        "compress": true,
+        "type": "default",
+        "runtime": "template.js",
+        "combo": true,
+        "minify": true,
+        "cache": false,
+        "verbose": true
+    }
+}
