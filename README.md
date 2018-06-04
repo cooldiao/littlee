@@ -8,64 +8,64 @@ A easy way to master h5
 在这里，【创造家】可以创造精美的【plugin】，而【艺术家】可以运用这些【plugin】来创建美妙的艺术品。
 
 # 依赖
-###1. art-template，一个简单而强大的前端渲染引擎。本框架使用阿里团队开发的 基于【art-template语法】的前端模板预编译工具。
+### 1. art-template，一个简单而强大的前端渲染引擎。本框架使用阿里团队开发的 基于【art-template语法】的前端模板预编译工具。
   （模板位于template/tpl/中，于该目录下执行如下命令，即可编译模板： tmod）qj
-###2. jquery
-###3. iscroll5
-###4. swiper
+### 2. jquery
+### 3. iscroll5
+### 4. swiper
 
 # 用法
-###1. 在index.html中引入【css文件】及【jquery, lib/littlee/index.js】
-###2. 启动应用，使用类似如下代码：
+### 1. 在index.html中引入【css文件】及【jquery, lib/littlee/index.js】
+### 2. 启动应用，使用类似如下代码：
   Ajax.query({href: '#', islogin: true, template: 'index', method: 'render', success: 'index.index', controller: 'index'});
-###3. 应用逻辑跳转，方式有二：
+### 3. 应用逻辑跳转，方式有二：
   1. 只需通过【Ajax.query】方法，即可渲染静态页面，或者从服务器端获取数据并渲染相应模板。
   2. 通过 【a标签】或者 含有 【query】class类的标签触发页面逻辑。本方法本质是方式1的调用，通过标签属性传递参数。
   
 # 属性说明
-###1. click
+### 1. click
  #### 含义： 点击执行的操作
  #### 值： 函数名
  #### 例： <a href='#' click='click.click'></a><script>var click = {click: function(data){console.log#### ： (1);}};</script>
  使用场景： 当只需要点击
  
-###2. store-offwifi
+### 2. store-offwifi
  #### 含义： 是否缓存非wifi环境下的post请求，以便节约流量
  #### 值： true | false
  #### 例： 
  #### 使用场景： 节约流量
  
-###3. data-value
+### 3. data-value
  #### 含义： 下载文件数据（配合 download 使用）
  #### 值： uri（资源路径）
  #### 例： <a download='true' data-value='http://www.baidu.com'>baidu</a>
  #### 使用场景： 下载文件
  
-###4. parent-dir
+### 4. parent-dir
  #### 含义： 下载文件本地存储路径（相对项目路径，配合 download 和 downloads 使用, 适用于移动端）
  #### 值： uri（资源路径）
  #### 例： <a download='true' parent-dir='data' data-value='http://www.baidu.com'>baidu</a>
  #### 使用场景： 移动端下载文件
 
-###5. export-source
+### 5. export-source
  #### 含义： 批量下载文件数据（配合 downloads 使用）
  #### 值： uri（资源路径）
  #### 例： <a downloads='true' export-source='http://www.baidu.com'>baidu</a>
  #### 使用场景： 批量下载文件
 
-###6. page
+### 6. page
  #### 含义： 分页页码（从1开始）
  #### 值： uri（资源路径）
  #### 例： <a  page='1'>baidu</a>
  #### 使用场景： 下拉加载更多
 
-###8. download
+### 8. download
  #### 含义： 单个文件下载
  #### 值： true | false
  #### 例： <a download='true' data-value='http://www.baidu.com'>baidu</a>
  #### 使用场景： 下载单个文件
 
-###9. downloads
+### 9. downloads
  #### 含义： 多文件下载
  #### 值： uri（资源路径）
  #### 例： <a downloads='true' data-value='http://www.baidu.com'>baidu</a>
